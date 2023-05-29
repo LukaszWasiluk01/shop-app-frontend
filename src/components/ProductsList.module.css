@@ -1,0 +1,40 @@
+.productItem {
+    display: flex;
+    padding: 16px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .productImage {
+    margin-right: 16px;
+  }
+
+  .productImage img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .productInfo {
+    flex: 1;
+  }
+
+  .productName {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .productPrice {
+    font-weight: bold;
+  }
+
+  .productCreated {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .productProvince {
+    margin-top: 8px;
+  }
