@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import styles from './ProductsList.module.css'
+import { Link } from 'react-router-dom'
 
 export interface Product {
   id: number
@@ -22,7 +23,8 @@ const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   return (
     <>
       {products.map((product) => (
-        <div className={styles.productItem} key={product.id}>
+        <Link to={`/products/${product.id}`} key={product.id}>
+        <div className={styles.productItem} >
           <div className={styles.productImage}>
             <img src={product.image} alt={product.name} />
           </div>
@@ -37,6 +39,7 @@ const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
             </p>
           </div>
         </div>
+        </Link>
       ))}
     </>
   )
