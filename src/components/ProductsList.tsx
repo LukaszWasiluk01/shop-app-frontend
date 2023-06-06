@@ -23,8 +23,11 @@ const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   return (
     <>
       {products.map((product) => (
-        <Link to={`/products/${product.id}`} key={product.id}>
-        <div className={styles.productItem} >
+        <Link
+          to={`/products/${product.id}`}
+          key={product.id}
+          className={styles.productItem}
+        >
           <div className={styles.productImage}>
             <img src={product.image} alt={product.name} />
           </div>
@@ -38,7 +41,6 @@ const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
               Province: {product.province}
             </p>
           </div>
-        </div>
         </Link>
       ))}
     </>

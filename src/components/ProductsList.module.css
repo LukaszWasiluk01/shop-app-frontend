@@ -1,10 +1,17 @@
 .productItem {
-    display: flex;
-    padding: 16px;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    margin-bottom: 16px;
-  }
+  display: flex;
+  padding: 16px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.productItem:hover {
+  background-color: #e0e0e0;
+}
 
   .productImage {
     margin-right: 16px;
