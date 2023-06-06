@@ -43,9 +43,7 @@ const Navigation: React.FC = () => {
                   <Link to="#">Purchase History</Link>
                   <Link to="#">User Data</Link>
                   <Link to="#">Address Data</Link>
-                  <button onClick={handleLogout}>
-                    Logout
-                  </button>
+                  <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
             </>

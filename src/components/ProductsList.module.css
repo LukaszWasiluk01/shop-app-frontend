@@ -13,35 +13,35 @@
   background-color: #e0e0e0;
 }
 
-  .productImage {
-    margin-right: 16px;
-  }
+.productImage {
+  margin-right: 16px;
+}
 
-  .productImage img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
+.productImage img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
 
-  .productInfo {
-    flex: 1;
-  }
+.productInfo {
+  flex: 1;
+}
 
-  .productName {
-    font-size: 20px;
-    font-weight: bold;
-  }
+.productName {
+  font-size: 20px;
+  font-weight: bold;
+}
 
-  .productPrice {
-    font-weight: bold;
-  }
+.productPrice {
+  font-weight: bold;
+}
 
-  .productCreated {
-    font-size: 12px;
-    color: #888;
-  }
+.productCreated {
+  font-size: 12px;
+  color: #888;
+}
 
-  .productProvince {
-    margin-top: 8px;
-  }
+.productProvince {
+  margin-top: 8px;
+}

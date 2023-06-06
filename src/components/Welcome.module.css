@@ -1,0 +1,37 @@
+.container {
+  text-align: center;
+}
+
+.welcomeMessage {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.categoryList {
+  margin-top: 40px;
+}
+
+.categoryTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.categoryItems {
+  list-style: none;
+  padding: 0;
+}
+
+.categoryItem {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.categoryItem:hover {
+  background-color: #e0e0e0;
+}

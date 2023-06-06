@@ -4,6 +4,7 @@ import ProductsPage, { loader as productsLoader } from './pages/Products'
 import ProductPage, { loader as productLoader } from './pages/Product'
 import Root from './pages/Root'
 import ErrorPage from './pages/Error'
+import HomePage, { loader as categoriesLoader } from './pages/Home'
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <HomePage />, loader: categoriesLoader },
       {
         path: 'products',
         children: [
