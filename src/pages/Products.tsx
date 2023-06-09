@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, type LoaderFunction, type LoaderFunctionArgs } from 'react-router-dom'
 import ProductsList, { type Product } from '../components/ProductsList'
 
 interface Data {
@@ -20,13 +20,18 @@ const ProductsPage: React.FC = () => {
 
 export default ProductsPage
 
-export async function loader (): Promise<Data> {
+export const loader: LoaderFunction = async ({
+  request
+}: LoaderFunctionArgs) => {
+  const url = new URL(request.url)
+  const params = url.searchParams
   const { data } = await axios.get<Data>(
     'http://localhost:8000/api/store/products/',
     {
       headers: {
         Accept: 'application/json'
-      }
+      },
+      params
     }
   )
   return data

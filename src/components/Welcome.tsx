@@ -22,7 +22,7 @@ const Welcome: React.FC<WelcomeProps> = ({ categories }) => {
         <ul className={styles.categoryItems}>
           {categories.map((category, index) => (
             <li key={index}>
-              <Link to="#" className={styles.categoryItem}>
+              <Link to={`/products?category__name=${category.name}`} className={styles.categoryItem}>
                 {category.name}
               </Link>
             </li>
