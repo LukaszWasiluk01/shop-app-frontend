@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import styles from './Navigation.module.css'
 
 const Navigation: React.FC = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const path = '/products'
+  const combinedSearchParams = new URLSearchParams(queryParams.toString())
+  combinedSearchParams.set('search', searchQuery)
 
   const toggleAccountDropdown = (): void => {
     setIsUserLoggedIn((prevState) => !prevState)
@@ -22,6 +29,21 @@ const Navigation: React.FC = () => {
       <div className={styles.logoContainer}>
         <Link to="/" className={styles.logoLink}>
           <img src="/logo192.png" alt="Logo" className={styles.logo} />
+        </Link>
+      </div>
+      <div className={styles.search}>
+        <input
+          type="text"
+          value={searchQuery}
+          className={styles.searchInput}
+          onChange={(e) => {
+            setSearchQuery(e.target.value)
+          }}
+          placeholder="Search..."
+          name="search"
+        />
+        <Link to={{ pathname: path, search: combinedSearchParams.toString() }}>
+          <button className={styles.searchButton} disabled={searchQuery === ''}>Search</button>
         </Link>
       </div>
       <div className={styles.menuItems}>

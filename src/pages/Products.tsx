@@ -1,7 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 
-import { useLoaderData, type LoaderFunction, type LoaderFunctionArgs } from 'react-router-dom'
+import {
+  useLoaderData,
+  type LoaderFunction,
+  type LoaderFunctionArgs
+} from 'react-router-dom'
 import ProductsList, { type Product } from '../components/ProductsList'
 
 interface Data {
