@@ -7,6 +7,7 @@ import {
   type LoaderFunctionArgs
 } from 'react-router-dom'
 import ProductsList, { type Product } from '../components/ProductsList'
+import FilterForm from '../components/Filter'
 
 interface Data {
   count: number
@@ -19,7 +20,12 @@ const ProductsPage: React.FC = () => {
   const data = useLoaderData() as Data
   const products: Product[] = data.results
 
-  return <ProductsList products={products} />
+  return (
+    <>
+      <FilterForm />
+      <ProductsList products={products} />
+    </>
+  )
 }
 
 export default ProductsPage
