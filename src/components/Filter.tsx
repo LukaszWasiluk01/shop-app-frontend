@@ -13,7 +13,7 @@ const FilterForm: React.FC = () => {
   const [priceGt, setPriceGt] = useState('')
   const [priceLt, setPriceLt] = useState('')
 
-  const handleSubmit = (e: React.FormEvent): void => {
+  const handleFormSubmit = (e: React.FormEvent): void => {
     e.preventDefault()
 
     const params = new URLSearchParams(window.location.search)
@@ -41,8 +41,17 @@ const FilterForm: React.FC = () => {
     })
   }
 
+  const handleReset = (): void => {
+    setCategory('')
+    setCreatedGt('')
+    setCreatedLt('')
+    setOrdering('')
+    setPriceGt('')
+    setPriceLt('')
+  }
+
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleFormSubmit}>
       <div className={styles.formGroup}>
         <label className={styles.label}>
           Category Name:
@@ -121,9 +130,14 @@ const FilterForm: React.FC = () => {
           />
         </label>
       </div>
-      <button className={styles.button} type="submit">
-        Submit
-      </button>
+      <div className={styles.buttonGroup}>
+        <button className={styles.button} type="button" onClick={handleReset}>
+          Reset
+        </button>
+        <button className={styles.button} type="submit">
+          Submit
+        </button>
+      </div>
     </form>
   )
 }
