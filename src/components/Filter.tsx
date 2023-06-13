@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import styles from './Filter.module.css'
 
 const FilterForm: React.FC = () => {
@@ -13,7 +15,7 @@ const FilterForm: React.FC = () => {
   const [priceGt, setPriceGt] = useState('')
   const [priceLt, setPriceLt] = useState('')
 
-  const handleFormSubmit = (e: React.FormEvent): void => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
 
     const params = new URLSearchParams(window.location.search)
@@ -68,12 +70,11 @@ const FilterForm: React.FC = () => {
       <div className={styles.formGroup}>
         <label className={styles.label}>
           Created Greater Than:
-          <input
+          <DatePicker
             className={styles.input}
-            type="text"
-            value={createdGt}
-            onChange={(e) => {
-              setCreatedGt(e.target.value)
+            selected={createdGt !== '' ? new Date(createdGt) : null}
+            onChange={(date: Date | null) => {
+              setCreatedGt(date?.toISOString() ?? '')
             }}
           />
         </label>
@@ -81,12 +82,11 @@ const FilterForm: React.FC = () => {
       <div className={styles.formGroup}>
         <label className={styles.label}>
           Created Less Than:
-          <input
+          <DatePicker
             className={styles.input}
-            type="text"
-            value={createdLt}
-            onChange={(e) => {
-              setCreatedLt(e.target.value)
+            selected={createdLt !== '' ? new Date(createdGt) : null}
+            onChange={(date: Date | null) => {
+              setCreatedLt(date?.toISOString() ?? '')
             }}
           />
         </label>
