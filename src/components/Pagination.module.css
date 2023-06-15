@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  margin: 0 10px;
+  font-weight: bold;
+}

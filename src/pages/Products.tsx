@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import ProductsList, { type Product } from '../components/ProductsList'
 import FilterForm from '../components/Filter'
+import Pagination from '../components/Pagination'
 
 interface Data {
   count: number
@@ -24,6 +25,7 @@ const ProductsPage: React.FC = () => {
     <>
       <FilterForm />
       <ProductsList products={products} />
+      <Pagination count={data.count}/>
     </>
   )
 }
