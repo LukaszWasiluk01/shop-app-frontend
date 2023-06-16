@@ -9,10 +9,12 @@ import HomePage, { loader as categoriesLoader } from './pages/Home'
 const router = createBrowserRouter([
   {
     path: '/',
+    id: 'root',
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: categoriesLoader,
     children: [
-      { index: true, element: <HomePage />, loader: categoriesLoader },
+      { index: true, element: <HomePage /> },
       {
         path: 'products',
         children: [

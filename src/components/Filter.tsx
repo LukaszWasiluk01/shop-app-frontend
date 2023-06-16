@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useRouteLoaderData } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import styles from './Filter.module.css'
+
+interface Category {
+  name: string
+}
 
 const FilterForm: React.FC = () => {
   const navigate = useNavigate()
@@ -14,6 +18,8 @@ const FilterForm: React.FC = () => {
   const [ordering, setOrdering] = useState('')
   const [priceGt, setPriceGt] = useState('')
   const [priceLt, setPriceLt] = useState('')
+
+  const categories = (useRouteLoaderData('root') as Category[]) ?? []
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
@@ -57,14 +63,21 @@ const FilterForm: React.FC = () => {
       <div className={styles.formGroup}>
         <label className={styles.label}>
           Category Name:
-          <input
+          <select
             className={styles.input}
-            type="text"
             value={category}
+            name="category__name"
             onChange={(e) => {
               setCategory(e.target.value)
             }}
-          />
+          >
+            <option value="">All</option>
+            {categories.map((category) => (
+              <option key={category.name} value={category.name}>
+                {category.name}
+              </option>
+            ))}
+          </select>
         </label>
       </div>
       <div className={styles.formGroup}>
@@ -72,6 +85,7 @@ const FilterForm: React.FC = () => {
           Created Greater Than:
           <DatePicker
             className={styles.input}
+            name="date__gt"
             selected={createdGt !== '' ? new Date(createdGt) : null}
             onChange={(date: Date | null) => {
               setCreatedGt(date?.toISOString() ?? '')
@@ -84,7 +98,8 @@ const FilterForm: React.FC = () => {
           Created Less Than:
           <DatePicker
             className={styles.input}
-            selected={createdLt !== '' ? new Date(createdGt) : null}
+            name="date__lt"
+            selected={createdLt !== '' ? new Date(createdLt) : null}
             onChange={(date: Date | null) => {
               setCreatedLt(date?.toISOString() ?? '')
             }}
@@ -96,6 +111,7 @@ const FilterForm: React.FC = () => {
           Ordering:
           <input
             className={styles.input}
+            name="ordering"
             type="text"
             value={ordering}
             onChange={(e) => {
@@ -109,6 +125,7 @@ const FilterForm: React.FC = () => {
           Price Greater Than:
           <input
             className={styles.input}
+            name="price__gt"
             type="number"
             value={priceGt}
             onChange={(e) => {
@@ -122,6 +139,7 @@ const FilterForm: React.FC = () => {
           Price Less Than:
           <input
             className={styles.input}
+            name="price__lt"
             type="number"
             value={priceLt}
             onChange={(e) => {

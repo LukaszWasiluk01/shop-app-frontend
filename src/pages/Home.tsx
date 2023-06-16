@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import { useLoaderData } from 'react-router-dom'
+import { useRouteLoaderData } from 'react-router-dom'
 import Welcome, { type Category } from '../components/Welcome'
 
 const HomePage: React.FC = () => {
-  const categories = useLoaderData() as Category[]
+  const categories = (useRouteLoaderData('root') as Category[]) ?? []
   return <Welcome categories={categories} />
 }
 
