@@ -5,6 +5,7 @@ import ProductPage, { loader as productLoader } from './pages/Product'
 import Root from './pages/Root'
 import ErrorPage from './pages/Error'
 import HomePage, { loader as categoriesLoader } from './pages/Home'
+import UserPage, { loader as userLoader } from './pages/User'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             loader: productLoader
           }
         ]
+      },
+      {
+        path: 'user',
+        children: [{ index: true, element: <UserPage />, loader: userLoader }]
       }
     ]
   }

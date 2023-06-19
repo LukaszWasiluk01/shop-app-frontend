@@ -63,7 +63,7 @@ const Navigation: React.FC = () => {
               {isUserLoggedIn && (
                 <div className={styles.accountDropdown}>
                   <Link to="#">Purchase History</Link>
-                  <Link to="#">User Data</Link>
+                  <Link to="/user">User Data</Link>
                   <Link to="#">Address Data</Link>
                   <button onClick={handleLogout}>Logout</button>
                 </div>

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.leftColumn {
+  flex: 1;
+}
+
+.rightColumn {
+  flex: 2;
+}
+
+.disabledLink {
+  opacity: 0.5;
+  pointer-events: none;
+}
