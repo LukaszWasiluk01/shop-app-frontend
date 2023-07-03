@@ -2,19 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import styles from './ProductsList.module.css'
 import { Link } from 'react-router-dom'
-
-export interface Product {
-  id: number
-  name: string
-  price: number
-  created: string
-  province: string
-  image: string
-}
-
-interface ProductsListProps {
-  products: Product[]
-}
+import { type ProductsListProps } from '../interfaces/productsInterfaces'
 
 const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   const formatDate = (date: string): string =>

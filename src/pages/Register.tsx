@@ -6,13 +6,7 @@ import {
   type ActionFunctionArgs
 } from 'react-router-dom'
 import RegisterForm from '../components/RegisterForm'
-
-interface RegisterResponseData {
-  email?: string[]
-  username?: string[]
-  password?: string[]
-  password2?: string[]
-}
+import { type RegisterResponseData } from '../interfaces/userInterfaces'
 
 const UserRegisterPage: React.FC = () => {
   return <RegisterForm />

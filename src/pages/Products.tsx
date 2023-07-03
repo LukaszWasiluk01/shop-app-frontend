@@ -6,20 +6,14 @@ import {
   type LoaderFunction,
   type LoaderFunctionArgs
 } from 'react-router-dom'
-import ProductsList, { type Product } from '../components/ProductsList'
+import ProductsList from '../components/ProductsList'
 import FilterForm from '../components/Filter'
 import Pagination from '../components/Pagination'
-
-interface Data {
-  count: number
-  next: string | null
-  previous: string | null
-  results: Product[]
-}
+import { type ProductsListData, type ProductsListItem } from '../interfaces/productsInterfaces'
 
 const ProductsPage: React.FC = () => {
-  const data = useLoaderData() as Data
-  const products: Product[] = data.results
+  const data = useLoaderData() as ProductsListData
+  const products: ProductsListItem[] = data.results
 
   return (
     <>
@@ -37,7 +31,7 @@ export const loader: LoaderFunction = async ({
 }: LoaderFunctionArgs) => {
   const url = new URL(request.url)
   const params = url.searchParams
-  const { data } = await axios.get<Data>(
+  const { data } = await axios.get<ProductsListData>(
     'http://localhost:8000/api/store/products/',
     {
       headers: {

@@ -2,13 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { Link, useLocation } from 'react-router-dom'
 import styles from './UserInfo.module.css'
-
-export interface UserProps {
-  email: string
-  username: string
-  date_joined: string
-  last_login: string
-}
+import { type UserProps } from '../interfaces/userInterfaces'
 
 const UserInfo: React.FC<UserProps> = ({
   email,

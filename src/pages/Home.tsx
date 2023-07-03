@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useRouteLoaderData } from 'react-router-dom'
-import Welcome, { type Category } from '../components/Welcome'
+import Welcome from '../components/Welcome'
+import { type Category } from '../interfaces/utilityInterfaces'
 
 const HomePage: React.FC = () => {
   const categories = (useRouteLoaderData('root') as Category[]) ?? []

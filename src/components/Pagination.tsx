@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import styles from './Pagination.module.css'
-
-interface PaginationProps {
-  count: number
-}
+import { type PaginationProps } from '../interfaces/utilityInterfaces'
 
 const Pagination: React.FC<PaginationProps> = ({ count }) => {
   const itemsPerPage = 8

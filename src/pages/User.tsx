@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useLoaderData } from 'react-router-dom'
-import UserInfo, { type UserProps } from '../components/UserInfo'
+import UserInfo from '../components/UserInfo'
+import { type UserProps } from '../interfaces/userInterfaces'
 
 const UserPage: React.FC = () => {
   const user = useLoaderData() as UserProps

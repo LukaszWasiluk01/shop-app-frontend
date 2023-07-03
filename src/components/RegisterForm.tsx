@@ -1,20 +1,7 @@
 import React from 'react'
 import { Form, useNavigation, useActionData } from 'react-router-dom'
 import './RegisterModule.css'
-
-export interface UserRegister {
-  username: string
-  email: string
-  password1: string
-  password2: string
-}
-
-interface RegisterResponseData {
-  email?: string[]
-  username?: string[]
-  password?: string[]
-  password2?: string[]
-}
+import { type RegisterResponseData } from '../interfaces/userInterfaces'
 
 const RegisterForm: React.FC = () => {
   const navigation = useNavigation()
