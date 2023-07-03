@@ -8,7 +8,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ count }) => {
   const itemsPerPage = 8
-  const maxPageNumber = Math.ceil(count / itemsPerPage)
+  const maxPageNumber = count === 0 ? 1 : Math.ceil(count / itemsPerPage)
 
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
