@@ -1,0 +1,72 @@
+.auth-link {
+  text-decoration: none;
+  margin: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.auth-link:hover {
+  background-color: #0056b3;
+}
+
+.register-container {
+  max-width: 400px;
+  margin: 1rem auto;
+  background-color: #f0f0f0;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form p {
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form p label {
+  margin-right: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.actions button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}
+
+.error-list {
+  color: red;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.password-error {
+  color: red;
+  margin-top: 0.5rem;
+}

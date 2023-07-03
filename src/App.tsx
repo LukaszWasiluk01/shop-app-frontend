@@ -6,6 +6,9 @@ import Root from './pages/Root'
 import ErrorPage from './pages/Error'
 import HomePage, { loader as categoriesLoader } from './pages/Home'
 import UserPage, { loader as userLoader } from './pages/User'
+import UserRegisterPage, {
+  action as userRegisterAction
+} from './pages/Register'
 
 const router = createBrowserRouter([
   {
@@ -29,7 +32,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'user',
-        children: [{ index: true, element: <UserPage />, loader: userLoader }]
+        children: [
+          { index: true, element: <UserPage />, loader: userLoader },
+          {
+            path: 'register',
+            element: <UserRegisterPage />,
+            action: userRegisterAction
+          }
+        ]
       }
     ]
   }

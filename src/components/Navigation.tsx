@@ -16,10 +16,6 @@ const Navigation: React.FC = () => {
     setIsUserLoggedIn((prevState) => !prevState)
   }
 
-  const handleLogin = (): void => {
-    setIsUserLoggedIn(true)
-  }
-
   const handleLogout = (): void => {
     setIsUserLoggedIn(false)
   }
@@ -43,7 +39,9 @@ const Navigation: React.FC = () => {
           name="search"
         />
         <Link to={{ pathname: path, search: combinedSearchParams.toString() }}>
-          <button className={styles.searchButton} disabled={searchQuery === ''}>Search</button>
+          <button className={styles.searchButton} disabled={searchQuery === ''}>
+            Search
+          </button>
         </Link>
       </div>
       <div className={styles.menuItems}>
@@ -71,9 +69,14 @@ const Navigation: React.FC = () => {
             </>
               )
             : (
-            <button className={styles.loginButton} onClick={handleLogin}>
-              Login
-            </button>
+            <>
+              <Link to="/user/register" className="auth-link">
+                Register
+              </Link>
+              <Link to="#" className="auth-link">
+                Login
+              </Link>
+            </>
               )}
         </div>
       </div>
