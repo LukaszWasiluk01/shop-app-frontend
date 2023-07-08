@@ -18,3 +18,7 @@ export interface UserProps {
   date_joined: string
   last_login: string
 }
+
+export interface LoginResponseData {
+  non_field_errors?: string[]
+}

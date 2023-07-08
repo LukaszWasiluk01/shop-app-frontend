@@ -9,6 +9,7 @@ import UserPage, { loader as userLoader } from './pages/User'
 import UserRegisterPage, {
   action as userRegisterAction
 } from './pages/Register'
+import UserLoginPage, { action as userLoginAction } from './pages/Login'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
             path: 'register',
             element: <UserRegisterPage />,
             action: userRegisterAction
+          },
+          {
+            path: 'login',
+            element: <UserLoginPage />,
+            action: userLoginAction
           }
         ]
       }
