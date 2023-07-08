@@ -1,18 +1,4 @@
-.auth-link {
-  text-decoration: none;
-  margin: 4px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.auth-link:hover {
-  background-color: #0056b3;
-}
-
-.register-container {
+.registerContainer {
   max-width: 400px;
   margin: 1rem auto;
   background-color: #f0f0f0;
@@ -60,13 +46,13 @@
   background-color: #0056b3;
 }
 
-.error-list {
+.errorList {
   color: red;
   margin-top: 0.5rem;
   padding-left: 1rem;
 }
 
-.password-error {
+.passwordError {
   color: red;
   margin-top: 0.5rem;
 }

@@ -1,3 +1,17 @@
+.authLink {
+  text-decoration: none;
+  margin: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.authLink:hover {
+  background-color: #0056b3;
+}
+
 .navigation {
   display: flex;
   align-items: center;

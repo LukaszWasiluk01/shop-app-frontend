@@ -70,10 +70,10 @@ const Navigation: React.FC = () => {
               )
             : (
             <>
-              <Link to="/user/register" className="auth-link">
+              <Link to="/user/register" className={styles.authLink}>
                 Register
               </Link>
-              <Link to="#" className="auth-link">
+              <Link to="#" className={styles.authLink}>
                 Login
               </Link>
             </>
