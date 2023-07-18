@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
+import axios from 'axios'
 import styles from './Navigation.module.css'
 
 const Navigation: React.FC = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const [searchQuery, setSearchQuery] = useState('')
@@ -12,12 +14,23 @@ const Navigation: React.FC = () => {
   const combinedSearchParams = new URLSearchParams(queryParams.toString())
   combinedSearchParams.set('search', searchQuery)
 
-  const toggleAccountDropdown = (): void => {
-    setIsUserLoggedIn((prevState) => !prevState)
+  const checkUserLoggedIn = async (): Promise<void> => {
+    await axios.get('http://localhost:8000/api/users/user/', { withCredentials: true })
   }
 
-  const handleLogout = (): void => {
-    setIsUserLoggedIn(false)
+  useEffect(() => {
+    checkUserLoggedIn()
+      .then(() => {
+        setIsUserLoggedIn(true)
+      })
+      .catch((error: any) => {
+        setIsUserLoggedIn(false)
+        void error
+      })
+  }, [])
+
+  const toggleDropdown = (): void => {
+    setIsDropdownOpen((prevState) => !prevState)
   }
 
   return (
@@ -54,16 +67,16 @@ const Navigation: React.FC = () => {
             <>
               <button
                 className={styles.accountButton}
-                onClick={toggleAccountDropdown}
+                onClick={toggleDropdown}
               >
                 User Account
               </button>
-              {isUserLoggedIn && (
+              {isDropdownOpen && (
                 <div className={styles.accountDropdown}>
                   <Link to="#">Purchase History</Link>
                   <Link to="/user">User Data</Link>
                   <Link to="#">Address Data</Link>
-                  <button onClick={handleLogout}>Logout</button>
+                  <Link to="#">Logout</Link>
                 </div>
               )}
             </>

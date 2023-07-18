@@ -21,13 +21,13 @@ export const action: ActionFunction = async ({
 
   const username = data.get('username')
   const password = data.get('password')
-  const url = 'http://localhost:8000/api/users/obtain-token/'
+  const url = 'http://localhost:8000/api/users/login/'
   try {
     const response = await axios.post(url, {
       username,
       password
-    })
-
+    },
+    { withCredentials: true })
     if (response.status >= 200 && response.status < 300) {
       return redirect('/')
     }
