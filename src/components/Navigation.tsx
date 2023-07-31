@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { type RootState, type AppDispatch } from '../store/store'
+import { fetchUserStatus } from '../store/loginSlice'
 import styles from './Navigation.module.css'
 
 const Navigation: React.FC = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dispatch = useDispatch<AppDispatch>()
+  const { isLoggedIn, isLoading } = useSelector(
+    (state: RootState) => state.login
+  )
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const [searchQuery, setSearchQuery] = useState('')
@@ -14,24 +19,15 @@ const Navigation: React.FC = () => {
   const combinedSearchParams = new URLSearchParams(queryParams.toString())
   combinedSearchParams.set('search', searchQuery)
 
-  const checkUserLoggedIn = async (): Promise<void> => {
-    await axios.get('http://localhost:8000/api/users/user/', { withCredentials: true })
-  }
-
-  useEffect(() => {
-    checkUserLoggedIn()
-      .then(() => {
-        setIsUserLoggedIn(true)
-      })
-      .catch((error: any) => {
-        setIsUserLoggedIn(false)
-        void error
-      })
-  }, [])
-
   const toggleDropdown = (): void => {
     setIsDropdownOpen((prevState) => !prevState)
   }
+
+  useEffect(() => {
+    dispatch(fetchUserStatus()).catch((err) => {
+      console.log(err)
+    })
+  }, [dispatch])
 
   return (
     <nav className={styles.navigation}>
@@ -62,13 +58,14 @@ const Navigation: React.FC = () => {
           <p>Cart</p>
         </div>
         <div className={styles.account}>
-          {isUserLoggedIn
+          {isLoading
             ? (
+            <p>Loading...</p>
+              )
+            : isLoggedIn
+              ? (
             <>
-              <button
-                className={styles.accountButton}
-                onClick={toggleDropdown}
-              >
+              <button className={styles.accountButton} onClick={toggleDropdown}>
                 User Account
               </button>
               {isDropdownOpen && (
@@ -80,8 +77,8 @@ const Navigation: React.FC = () => {
                 </div>
               )}
             </>
-              )
-            : (
+                )
+              : (
             <>
               <Link to="/user/register" className={styles.authLink}>
                 Register
@@ -90,7 +87,7 @@ const Navigation: React.FC = () => {
                 Login
               </Link>
             </>
-              )}
+                )}
         </div>
       </div>
     </nav>

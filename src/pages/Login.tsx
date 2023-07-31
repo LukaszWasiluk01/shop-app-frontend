@@ -5,6 +5,8 @@ import {
   type ActionFunction,
   type ActionFunctionArgs
 } from 'react-router-dom'
+import store from '../store/store'
+import { fetchUserStatus } from '../store/loginSlice'
 import LoginForm from '../components/LoginForm'
 import { type LoginResponseData } from '../interfaces/userInterfaces'
 
@@ -23,12 +25,16 @@ export const action: ActionFunction = async ({
   const password = data.get('password')
   const url = 'http://localhost:8000/api/users/login/'
   try {
-    const response = await axios.post(url, {
-      username,
-      password
-    },
-    { withCredentials: true })
+    const response = await axios.post(
+      url,
+      {
+        username,
+        password
+      },
+      { withCredentials: true }
+    )
     if (response.status >= 200 && response.status < 300) {
+      await store.dispatch(fetchUserStatus())
       return redirect('/')
     }
   } catch (error: any) {
