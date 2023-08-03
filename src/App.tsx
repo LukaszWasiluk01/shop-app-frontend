@@ -10,6 +10,8 @@ import UserRegisterPage, {
   action as userRegisterAction
 } from './pages/Register'
 import UserLoginPage, { action as userLoginAction } from './pages/Login'
+import LogoutPage from './pages/Logout'
+import LogoutSuccessPage from './pages/LogoutSuccess'
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
             path: 'login',
             element: <UserLoginPage />,
             action: userLoginAction
+          },
+          {
+            path: 'logout',
+            element: <LogoutPage />
+          },
+          {
+            path: 'logout-success',
+            element: <LogoutSuccessPage />
           }
         ]
       }

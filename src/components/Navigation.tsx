@@ -73,7 +73,7 @@ const Navigation: React.FC = () => {
                   <Link to="#">Purchase History</Link>
                   <Link to="/user">User Data</Link>
                   <Link to="#">Address Data</Link>
-                  <Link to="#">Logout</Link>
+                  <Link to="/user/logout">Logout</Link>
                 </div>
               )}
             </>
