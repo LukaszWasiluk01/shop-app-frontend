@@ -21,7 +21,7 @@ const UserInfo: React.FC<UserProps> = ({
       <div className={styles.leftColumn}>
         <div>
           <Link
-            to="/personal-info"
+            to="#"
             className={
               location.pathname === '/personal-info' ? styles.disabledLink : ''
             }
@@ -30,10 +30,13 @@ const UserInfo: React.FC<UserProps> = ({
           </Link>
         </div>
         <div>
-          <Link to="/change-data">Change data</Link>
+          <Link to="#">Change data</Link>
         </div>
         <div>
-          <Link to="/delete-account">Delete account</Link>
+          <Link to="change-password">Change password</Link>
+        </div>
+        <div>
+          <Link to="#">Delete account</Link>
         </div>
       </div>
       <div className={styles.rightColumn}>

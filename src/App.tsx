@@ -12,6 +12,9 @@ import UserRegisterPage, {
 import UserLoginPage, { action as userLoginAction } from './pages/Login'
 import LogoutPage from './pages/Logout'
 import LogoutSuccessPage from './pages/LogoutSuccess'
+import UserChangePasswordPage, {
+  action as UserChangePasswordAction
+} from './pages/ChangePassword'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,11 @@ const router = createBrowserRouter([
           {
             path: 'logout-success',
             element: <LogoutSuccessPage />
+          },
+          {
+            path: 'change-password',
+            element: <UserChangePasswordPage />,
+            action: UserChangePasswordAction
           }
         ]
       }

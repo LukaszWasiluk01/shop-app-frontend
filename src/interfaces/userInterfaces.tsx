@@ -22,3 +22,7 @@ export interface UserProps {
 export interface LoginResponseData {
   non_field_errors?: string[]
 }
+
+export interface PasswordChangeResponseData {
+  new_password2?: string[]
+}
