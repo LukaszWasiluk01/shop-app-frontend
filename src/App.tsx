@@ -2,6 +2,7 @@ import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ProductsPage, { loader as productsLoader } from './pages/Products'
 import ProductPage, { loader as productLoader } from './pages/Product'
+import NewProductPage, { action as newProductAction } from './pages/NewProduct'
 import Root from './pages/Root'
 import ErrorPage from './pages/Error'
 import HomePage, { loader as categoriesLoader } from './pages/Home'
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         path: 'products',
         children: [
           { index: true, element: <ProductsPage />, loader: productsLoader },
+          {
+            path: 'add-product',
+            element: <NewProductPage />,
+            action: newProductAction
+          },
           {
             path: ':id',
             element: <ProductPage />,

@@ -41,3 +41,27 @@ export interface ProductsListItem {
   province: string
   image: string
 }
+
+export interface NewProductResponseData {
+  id: number
+  author: Author
+  name: string
+  price: number
+  description: string
+  created: string
+  province: string
+  phone_number: string
+  image: File
+  category: string
+}
+
+export interface NewProductErrorResponseData {
+  name?: string[]
+  price?: string[]
+  description?: string[]
+  created?: string[]
+  province?: string[]
+  phone_number?: string[]
+  image?: string[]
+  category?: string[]
+}

@@ -1,3 +1,6 @@
+export interface ProductFormProps {
+  categories: Category[]
+}
 
 export interface WelcomeProps {
   categories: Category[]

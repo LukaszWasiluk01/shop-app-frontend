@@ -70,9 +70,8 @@ const Navigation: React.FC = () => {
               </button>
               {isDropdownOpen && (
                 <div className={styles.accountDropdown}>
-                  <Link to="#">Purchase History</Link>
+                  <Link to="/products/add-product">Add Product</Link>
                   <Link to="/user">User Data</Link>
-                  <Link to="#">Address Data</Link>
                   <Link to="/user/logout">Logout</Link>
                 </div>
               )}
