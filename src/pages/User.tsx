@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useLoaderData } from 'react-router-dom'
+
 import UserInfo from '../components/UserInfo'
 import { type UserProps } from '../interfaces/userInterfaces'
 

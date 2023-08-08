@@ -1,7 +1,9 @@
 import React from 'react'
-import styles from './Welcome.module.css'
 import { Link } from 'react-router-dom'
+
 import { type WelcomeProps } from '../interfaces/utilityInterfaces'
+
+import styles from './Welcome.module.css'
 
 const Welcome: React.FC<WelcomeProps> = ({ categories }) => {
   return (

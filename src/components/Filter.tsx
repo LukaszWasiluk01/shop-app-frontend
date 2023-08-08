@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate, useRouteLoaderData } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
+
 import 'react-datepicker/dist/react-datepicker.css'
-import styles from './Filter.module.css'
 import { type Category } from '../interfaces/utilityInterfaces'
+
+import styles from './Filter.module.css'
 
 const FilterForm: React.FC = () => {
   const navigate = useNavigate()

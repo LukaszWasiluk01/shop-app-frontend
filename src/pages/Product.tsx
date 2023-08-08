@@ -5,6 +5,7 @@ import {
   type LoaderFunction,
   type LoaderFunctionArgs
 } from 'react-router-dom'
+
 import ProductDetail from '../components/ProductDetail'
 import { type ProductDetail as ProductDetailInterface } from '../interfaces/productsInterfaces'
 

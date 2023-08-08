@@ -1,9 +1,11 @@
 import React, { useState, type ChangeEvent } from 'react'
 import { Form, useActionData } from 'react-router-dom'
-import styles from './ProductForm.module.css'
+
 import { type ProductFormProps } from '../interfaces/utilityInterfaces'
 import provinces from '../data/provincesData'
 import { type NewProductErrorResponseData } from '../interfaces/productsInterfaces'
+
+import styles from './ProductForm.module.css'
 
 const ProductForm: React.FC<ProductFormProps> = ({ categories }) => {
   const data = useActionData() as NewProductErrorResponseData

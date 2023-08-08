@@ -5,6 +5,7 @@ import {
   type ActionFunction,
   type ActionFunctionArgs
 } from 'react-router-dom'
+
 import RegisterForm from '../components/RegisterForm'
 import { type RegisterResponseData } from '../interfaces/userInterfaces'
 

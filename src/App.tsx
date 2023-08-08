@@ -1,5 +1,6 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
 import ProductsPage, { loader as productsLoader } from './pages/Products'
 import ProductPage, { loader as productLoader } from './pages/Product'
 import NewProductPage, { action as newProductAction } from './pages/NewProduct'

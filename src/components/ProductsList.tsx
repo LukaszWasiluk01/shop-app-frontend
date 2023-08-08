@@ -1,8 +1,10 @@
 import React from 'react'
 import moment from 'moment'
-import styles from './ProductsList.module.css'
 import { Link } from 'react-router-dom'
+
 import { type ProductsListProps } from '../interfaces/productsInterfaces'
+
+import styles from './ProductsList.module.css'
 
 const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   const formatDate = (date: string): string =>

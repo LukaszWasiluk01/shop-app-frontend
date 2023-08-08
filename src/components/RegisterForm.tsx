@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form, useNavigation, useActionData } from 'react-router-dom'
+
 import { type RegisterResponseData } from '../interfaces/userInterfaces'
+
 import styles from './RegisterForm.module.css'
 
 const RegisterForm: React.FC = () => {

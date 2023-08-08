@@ -41,11 +41,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### `npm run lint`
 
-Checks linting .js,.jsx,.ts,.tsx files in src/ folder.
+Checks linting and sorting imports .js,.jsx,.ts,.tsx files in src/ folder.
 
 ### `npm run fix`
 
-Runs linting .js,.jsx,.ts,.tsx files in src/ folder.
+Runs linting and sorting imports .js,.jsx,.ts,.tsx files in src/ folder.
 
 ## Learn More
 

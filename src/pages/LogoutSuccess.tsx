@@ -1,4 +1,5 @@
 import React from 'react'
+
 import LogoutSuccess from '../components/LogoutSuccess'
 
 const LogoutSuccessPage: React.FC = () => {

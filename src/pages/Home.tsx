@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useRouteLoaderData } from 'react-router-dom'
+
 import Welcome from '../components/Welcome'
 import { type Category } from '../interfaces/utilityInterfaces'
 

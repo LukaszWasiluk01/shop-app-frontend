@@ -1,7 +1,9 @@
 import React from 'react'
 import moment from 'moment'
-import styles from './Product.module.css'
+
 import { type ProductDetailProps } from '../interfaces/productsInterfaces'
+
+import styles from './Product.module.css'
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const formatDate = (date: string): string =>

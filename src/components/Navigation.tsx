@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { type RootState, type AppDispatch } from '../store/store'
 import { fetchUserStatus } from '../store/loginSlice'
+
 import styles from './Navigation.module.css'
 
 const Navigation: React.FC = () => {

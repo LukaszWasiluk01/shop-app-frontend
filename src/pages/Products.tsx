@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from 'axios'
-
 import {
   useLoaderData,
   type LoaderFunction,
   type LoaderFunctionArgs
 } from 'react-router-dom'
+
 import ProductsList from '../components/ProductsList'
 import FilterForm from '../components/Filter'
 import Pagination from '../components/Pagination'
