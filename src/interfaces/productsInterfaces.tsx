@@ -56,6 +56,7 @@ export interface NewProductResponseData {
 }
 
 export interface NewProductErrorResponseData {
+  detail?: string[]
   name?: string[]
   price?: string[]
   description?: string[]

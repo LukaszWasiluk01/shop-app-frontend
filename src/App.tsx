@@ -17,6 +17,9 @@ import LogoutSuccessPage from './pages/LogoutSuccess'
 import UserChangePasswordPage, {
   action as UserChangePasswordAction
 } from './pages/ChangePassword'
+import EditProductPage, {
+  action as productEditAction
+} from './pages/EditProduct'
 
 const router = createBrowserRouter([
   {
@@ -38,8 +41,19 @@ const router = createBrowserRouter([
           },
           {
             path: ':id',
-            element: <ProductPage />,
-            loader: productLoader
+            id: 'product-detail',
+            loader: productLoader,
+            children: [
+              {
+                index: true,
+                element: <ProductPage />
+              },
+              {
+                path: 'edit',
+                element: <EditProductPage />,
+                action: productEditAction
+              }
+            ]
           }
         ]
       },

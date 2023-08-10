@@ -1,0 +1,57 @@
+.productContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productImage {
+  flex: 1;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.productImage img {
+  max-width: 100%;
+  height: auto;
+}
+
+.productInfo {
+  flex: 2;
+}
+
+.productName {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.productDescription {
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-weight: bold;
+}
+
+.productCreated,
+.productProvince {
+  margin-top: 5px;
+  color: #888;
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.authorUsername {
+  font-weight: bold;
+}
+
+.authorDateJoined,
+.authorLastLogin {
+  color: #888;
+  margin-top: 5px;
+}

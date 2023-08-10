@@ -7,15 +7,16 @@ import { type NewProductErrorResponseData } from '../interfaces/productsInterfac
 
 import styles from './ProductForm.module.css'
 
-const ProductForm: React.FC<ProductFormProps> = ({ categories }) => {
+const ProductForm: React.FC<ProductFormProps> = ({ categories, product }) => {
   const data = useActionData() as NewProductErrorResponseData
+  console.log(product)
   const [formData, setFormData] = useState({
-    name: '',
-    price: '',
-    description: '',
-    province: '',
-    phone_number: '',
-    category: ''
+    name: product?.name ?? '',
+    price: product?.price ?? '',
+    description: product?.description ?? '',
+    province: product?.province ?? '',
+    phone_number: product?.phone_number ?? '',
+    category: product?.category ?? ''
   })
 
   const handleChange = (
@@ -31,6 +32,13 @@ const ProductForm: React.FC<ProductFormProps> = ({ categories }) => {
   return (
     <Form method="POST" className={styles.form} encType="multipart/form-data">
       <h2>Add Product</h2>
+      {data?.detail !== undefined && (
+        <ul className={styles.errorList}>
+          {data.detail.map((err) => (
+            <li key={err}>{err}</li>
+          ))}
+        </ul>
+      )}
       <div className={styles.inputContainer}>
         {data?.name !== undefined && (
           <ul className={styles.errorList}>

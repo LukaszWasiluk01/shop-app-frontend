@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {
-  useLoaderData,
+  useRouteLoaderData,
   type LoaderFunction,
   type LoaderFunctionArgs
 } from 'react-router-dom'
@@ -10,7 +10,9 @@ import ProductDetail from '../components/ProductDetail'
 import { type ProductDetail as ProductDetailInterface } from '../interfaces/productsInterfaces'
 
 const ProductPage: React.FC = () => {
-  const product = useLoaderData() as ProductDetailInterface
+  const product = useRouteLoaderData(
+    'product-detail'
+  ) as ProductDetailInterface
 
   return <ProductDetail product={product} />
 }

@@ -3,14 +3,14 @@ import moment from 'moment'
 
 import { type ProductDetailProps } from '../interfaces/productsInterfaces'
 
-import styles from './Product.module.css'
+import styles from './ProductDetail.module.css'
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const formatDate = (date: string): string =>
     moment(date).format('HH:mm DD.MM.YYYY')
 
   return (
-    <div className={styles.container}>
+    <div className={styles.productContainer}>
       <div className={styles.productImage}>
         <img src={product.image} alt={product.name} />
       </div>
