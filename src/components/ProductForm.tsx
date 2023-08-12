@@ -9,7 +9,6 @@ import styles from './ProductForm.module.css'
 
 const ProductForm: React.FC<ProductFormProps> = ({ categories, product }) => {
   const data = useActionData() as NewProductErrorResponseData
-  console.log(product)
   const [formData, setFormData] = useState({
     name: product?.name ?? '',
     price: product?.price ?? '',
@@ -34,9 +33,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ categories, product }) => {
       <h2>Add Product</h2>
       {data?.detail !== undefined && (
         <ul className={styles.errorList}>
-          {data.detail.map((err) => (
-            <li key={err}>{err}</li>
-          ))}
+          <li>{data.detail}</li>
         </ul>
       )}
       <div className={styles.inputContainer}>
@@ -172,7 +169,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ categories, product }) => {
           type="file"
           name="image"
           accept="image/png, image/jpeg"
-          required
+          required={product === null}
         />
       </div>
       <button className={styles.submitButton} type="submit">

@@ -63,7 +63,7 @@ export const action: ActionFunction = async ({
     phone_number: formData.get('phone_number'),
     category: formData.get('category')
   }
-  const image = formData.get('image')
+  const image = formData.get('image') as File
 
   try {
     const createProductUrl = `http://localhost:8000/api/store/products/${productId}/`
@@ -72,12 +72,11 @@ export const action: ActionFunction = async ({
       productData,
       { withCredentials: true }
     )
-
-    if (response.data.id !== null && image != null) {
+    if (response.data.id !== null && image != null && image.size !== 0) {
       try {
         const uploadImageUrl = `http://localhost:8000/api/store/products/${productId}/upload-image/`
 
-        const uploadImageResponse = await axios.put(
+        await axios.post(
           uploadImageUrl,
           { image },
           {
@@ -85,18 +84,13 @@ export const action: ActionFunction = async ({
             headers: { 'Content-Type': 'multipart/form-data' }
           }
         )
-        if (
-          uploadImageResponse.status >= 200 &&
-          uploadImageResponse.status < 300
-        ) {
-          return redirect(`/products/${productId}`)
-        }
       } catch (error: any) {
         console.log(error.response.data)
         const responseData = error.response.data
         return responseData
       }
     }
+    return redirect(`/products/${productId}`)
   } catch (error: any) {
     console.log(error.response.data)
     const responseData = error.response.data
