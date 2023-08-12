@@ -43,7 +43,7 @@ const FilterForm: React.FC = () => {
     })
 
     navigate({
-      pathname: '/products',
+      pathname: window.location.pathname,
       search: params.toString()
     })
   }

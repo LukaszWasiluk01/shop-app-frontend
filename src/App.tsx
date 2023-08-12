@@ -20,6 +20,7 @@ import UserChangePasswordPage, {
 import EditProductPage, {
   action as productEditAction
 } from './pages/EditProduct'
+import MyProductsPage, { loader as myProductsLoader } from './pages/MyProducts'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
         path: 'products',
         children: [
           { index: true, element: <ProductsPage />, loader: productsLoader },
+          {
+            path: 'my-products',
+            element: <MyProductsPage />,
+            loader: myProductsLoader
+          },
           {
             path: 'add-product',
             element: <NewProductPage />,

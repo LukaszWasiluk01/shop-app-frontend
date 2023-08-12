@@ -17,7 +17,10 @@ const Navigation: React.FC = () => {
   const queryParams = new URLSearchParams(location.search)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const path = '/products'
+  let path = window.location.pathname
+  if (!path.startsWith('/products')) {
+    path = '/products'
+  }
   const combinedSearchParams = new URLSearchParams(queryParams.toString())
   combinedSearchParams.set('search', searchQuery)
 
@@ -73,6 +76,7 @@ const Navigation: React.FC = () => {
               {isDropdownOpen && (
                 <div className={styles.accountDropdown}>
                   <Link to="/products/add-product">Add Product</Link>
+                  <Link to="/products/my-products">My Products</Link>
                   <Link to="/user">User Data</Link>
                   <Link to="/user/logout">Logout</Link>
                 </div>
