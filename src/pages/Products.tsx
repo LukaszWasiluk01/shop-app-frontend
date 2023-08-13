@@ -9,7 +9,10 @@ import {
 import ProductsList from '../components/ProductsList'
 import FilterForm from '../components/Filter'
 import Pagination from '../components/Pagination'
-import { type ProductsListData, type ProductsListItem } from '../interfaces/productsInterfaces'
+import {
+  type ProductsListData,
+  type ProductsListItem
+} from '../interfaces/productsInterfaces'
 
 const ProductsPage: React.FC = () => {
   const data = useLoaderData() as ProductsListData
@@ -18,8 +21,8 @@ const ProductsPage: React.FC = () => {
   return (
     <>
       <FilterForm />
-      <ProductsList products={products} />
-      <Pagination count={data.count}/>
+      <ProductsList products={products} enableEdit={false} />
+      <Pagination count={data.count} />
     </>
   )
 }

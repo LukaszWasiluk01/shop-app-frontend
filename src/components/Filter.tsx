@@ -58,104 +58,106 @@ const FilterForm: React.FC = () => {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleFormSubmit}>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Category Name:
-          <select
-            className={styles.input}
-            value={category}
-            name="category__name"
-            onChange={(e) => {
-              setCategory(e.target.value)
-            }}
-          >
-            <option value="">All</option>
-            {categories.map((category) => (
-              <option key={category.name} value={category.name}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Created Greater Than:
-          <DatePicker
-            className={styles.input}
-            name="date__gt"
-            selected={createdGt !== '' ? new Date(createdGt) : null}
-            onChange={(date: Date | null) => {
-              setCreatedGt(date?.toISOString() ?? '')
-            }}
-          />
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Created Less Than:
-          <DatePicker
-            className={styles.input}
-            name="date__lt"
-            selected={createdLt !== '' ? new Date(createdLt) : null}
-            onChange={(date: Date | null) => {
-              setCreatedLt(date?.toISOString() ?? '')
-            }}
-          />
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Ordering:
-          <input
-            className={styles.input}
-            name="ordering"
-            type="text"
-            value={ordering}
-            onChange={(e) => {
-              setOrdering(e.target.value)
-            }}
-          />
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Price Greater Than:
-          <input
-            className={styles.input}
-            name="price__gt"
-            type="number"
-            value={priceGt}
-            onChange={(e) => {
-              setPriceGt(e.target.value)
-            }}
-          />
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.label}>
-          Price Less Than:
-          <input
-            className={styles.input}
-            name="price__lt"
-            type="number"
-            value={priceLt}
-            onChange={(e) => {
-              setPriceLt(e.target.value)
-            }}
-          />
-        </label>
-      </div>
-      <div className={styles.buttonGroup}>
-        <button className={styles.button} type="button" onClick={handleReset}>
-          Reset
-        </button>
-        <button className={styles.button} type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
+    <div className={styles.centerContainer}>
+      <form className={styles.form} onSubmit={handleFormSubmit}>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Category Name:
+            <select
+              className={styles.input}
+              value={category}
+              name="category__name"
+              onChange={(e) => {
+                setCategory(e.target.value)
+              }}
+            >
+              <option value="">All</option>
+              {categories.map((category) => (
+                <option key={category.name} value={category.name}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Created Greater Than:
+            <DatePicker
+              className={styles.input}
+              name="date__gt"
+              selected={createdGt !== '' ? new Date(createdGt) : null}
+              onChange={(date: Date | null) => {
+                setCreatedGt(date?.toISOString() ?? '')
+              }}
+            />
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Created Less Than:
+            <DatePicker
+              className={styles.input}
+              name="date__lt"
+              selected={createdLt !== '' ? new Date(createdLt) : null}
+              onChange={(date: Date | null) => {
+                setCreatedLt(date?.toISOString() ?? '')
+              }}
+            />
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Ordering:
+            <input
+              className={styles.input}
+              name="ordering"
+              type="text"
+              value={ordering}
+              onChange={(e) => {
+                setOrdering(e.target.value)
+              }}
+            />
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Price Greater Than:
+            <input
+              className={styles.input}
+              name="price__gt"
+              type="number"
+              value={priceGt}
+              onChange={(e) => {
+                setPriceGt(e.target.value)
+              }}
+            />
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>
+            Price Less Than:
+            <input
+              className={styles.input}
+              name="price__lt"
+              type="number"
+              value={priceLt}
+              onChange={(e) => {
+                setPriceLt(e.target.value)
+              }}
+            />
+          </label>
+        </div>
+        <div className={styles.buttonGroup}>
+          <button className={styles.button} type="button" onClick={handleReset}>
+            Reset
+          </button>
+          <button className={styles.button} type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }
 

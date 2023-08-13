@@ -23,6 +23,7 @@ export interface Author {
 }
 
 export interface ProductsListProps {
+  enableEdit: boolean
   products: ProductsListItem[]
 }
 

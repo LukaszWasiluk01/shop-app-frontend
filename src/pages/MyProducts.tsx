@@ -21,7 +21,7 @@ const MyProductsPage: React.FC = () => {
   return (
     <>
       <FilterForm />
-      <ProductsList products={products} />
+      <ProductsList products={products} enableEdit={true} />
       <Pagination count={data.count} />
     </>
   )
