@@ -1,6 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import { useLoaderData } from 'react-router-dom'
+import {
+  redirect,
+  useLoaderData,
+  type LoaderFunction
+} from 'react-router-dom'
 
 import UserInfo from '../components/UserInfo'
 import { type UserProps } from '../interfaces/userInterfaces'
@@ -19,15 +23,22 @@ const UserPage: React.FC = () => {
 
 export default UserPage
 
-export async function loader (): Promise<UserProps> {
-  const { data } = await axios.get<UserProps>(
-    'http://localhost:8000/api/users/user/',
-    {
-      headers: {
-        Accept: 'application/json'
-      },
-      withCredentials: true
+export const loader: LoaderFunction = async () => {
+  try {
+    const response = await axios.get<UserProps>(
+      'http://localhost:8000/api/users/user/',
+      {
+        headers: {
+          Accept: 'application/json'
+        },
+        withCredentials: true
+      }
+    )
+    return response.data
+  } catch (error: any) {
+    if (error.response.status === 401) {
+      return redirect('/user/login')
     }
-  )
-  return data
+    return error.response.data
+  }
 }

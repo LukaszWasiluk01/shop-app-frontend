@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {
+  redirect,
   useLoaderData,
   type LoaderFunction,
   type LoaderFunctionArgs
@@ -34,15 +35,22 @@ export const loader: LoaderFunction = async ({
 }: LoaderFunctionArgs) => {
   const url = new URL(request.url)
   const params = url.searchParams
-  const { data } = await axios.get<ProductsListData>(
-    'http://localhost:8000/api/store/products/my-products/',
-    {
-      headers: {
-        Accept: 'application/json'
-      },
-      withCredentials: true,
-      params
+  try {
+    const { data } = await axios.get<ProductsListData>(
+      'http://localhost:8000/api/store/products/my-products/',
+      {
+        headers: {
+          Accept: 'application/json'
+        },
+        withCredentials: true,
+        params
+      }
+    )
+    return data
+  } catch (error: any) {
+    if (error.response.status === 401) {
+      return redirect('/user/login')
     }
-  )
-  return data
+    return error.response.data
+  }
 }
